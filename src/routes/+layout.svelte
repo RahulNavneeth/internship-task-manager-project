@@ -22,7 +22,7 @@
 			}}
 			class="font-black shadow-md fixed bg-red-100 w-full text-2xl border-b-2 border-red-300 -mt-4 py-4 underline outline-none"
 		>
-			{COMPANY_NAME.toUpperCase()} TASK MANAGER
+			{COMPANY_NAME.toUpperCase()} TASK MANAGER!
 		</button>
 		{#if $access || ['/', '/record'].includes($page.url.pathname)}
 			<div class="flex flex-col h-full justify-center w-full p-4 mt-12 rounded-lg">
