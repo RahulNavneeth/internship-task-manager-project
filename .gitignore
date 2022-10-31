@@ -1,3 +1,5 @@
+src/libs/constant.ts
+src/api/index.ts
 types/env.d.ts
 yarn-error.log
 pnpm-lock.yaml
@@ -12,3 +14,5 @@ node_modules/
 build/
 dist/
 .env
+src/api/index.ts
+src/libs/constant.ts

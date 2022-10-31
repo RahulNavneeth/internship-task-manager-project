@@ -69,22 +69,22 @@
 				break;
 			case 2:
 				get_data = await postCompany(companyProps.set);
-				$Message = data;
+				$Message = get_data;
 				companyProps.set = '';
 				break;
 			case 3:
 				get_data = await postProject(projectProps.set);
-				$Message = data;
+				$Message = get_data;
 				projectProps.set = '';
 				break;
 			case 4:
 				get_data = await postEmployee(employeeProps.set);
-				$Message = data;
+				$Message = get_data;
 				employeeProps.set = '';
 				break;
 			case 5:
-				data = await postIssue(issueProps.set);
-				$Message = data;
+				get_data = await postIssue(issueProps.set);
+				$Message = get_data;
 				issueProps.set = '';
 				break;
 		}
