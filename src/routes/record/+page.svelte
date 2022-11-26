@@ -174,7 +174,7 @@
 			});
 		} else {
 			console.log(rgb);
-			await axios.post(`${url}`, {
+			await axios.post(`${url}&sheetId=0&sheetName=Sheet1`, {
 				data: recordData,
 				props: {
 					font: 'Roboto Mono',
