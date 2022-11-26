@@ -17,6 +17,10 @@
 	};
 	export let data: employeeView;
 
+	const tmp_company = data.company;
+	const tmp_project = data.project;
+	const tmp_employee = data.employee;
+	const tmp_issue = data.issue;
 	let interpeted_s: number = 0;
 	type props = {
 		toggle: boolean;
@@ -226,7 +230,17 @@
 			<div
 				class="bg-white outline-none border-2 border-black rounded-md mt-2 w-full text-center py-2 "
 			>
-				<span class="text-black ">{companyProps.set}</span>
+				<input
+					class="text-center outline-none"
+					type="text"
+					on:keyup={() => {
+						data.company = tmp_company;
+						data.company = data.company.filter((i) =>
+							i.name.toLowerCase().includes(companyProps.set.toLowerCase()),
+						);
+					}}
+					bind:value={companyProps.set}
+				/>
 			</div>
 			<button
 				on:click={() => {
@@ -279,7 +293,17 @@
 			<div
 				class="bg-white outline-none border-2 border-black rounded-md mt-2 w-full text-center py-2 "
 			>
-				<span class="text-black ">{projectProps.set}</span>
+				<input
+					class="text-center outline-none"
+					type="text"
+					on:keyup={() => {
+						data.project = tmp_project;
+						data.project = data.project.filter((i) =>
+							i.name.toLowerCase().includes(projectProps.set.toLowerCase()),
+						);
+					}}
+					bind:value={projectProps.set}
+				/>
 			</div>
 			<button
 				on:click={() => {
@@ -332,7 +356,17 @@
 			<div
 				class="bg-white outline-none border-2 border-black rounded-md mt-2 w-full text-center py-2 "
 			>
-				<span class="text-black ">{employeeProps.set}</span>
+				<input
+					class="text-center outline-none"
+					type="text"
+					on:keyup={() => {
+						data.employee = tmp_employee;
+						data.employee = data.employee.filter((i) =>
+							i.name.toLowerCase().includes(employeeProps.set.toLowerCase()),
+						);
+					}}
+					bind:value={employeeProps.set}
+				/>
 			</div>
 			<button
 				on:click={() => {
@@ -386,7 +420,17 @@
 			<div
 				class="bg-white outline-none border-2 border-black rounded-md mt-2 w-full text-center py-2 "
 			>
-				<span class="text-black ">{issueProps.set}</span>
+				<input
+					class="text-center outline-none"
+					type="text"
+					on:keyup={() => {
+						data.issue = tmp_issue;
+						data.issue = data.issue.filter((i) =>
+							i.name.toLowerCase().includes(issueProps.set.toLowerCase()),
+						);
+					}}
+					bind:value={issueProps.set}
+				/>
 			</div>
 			<button
 				on:click={() => {
