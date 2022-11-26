@@ -31,15 +31,5 @@
 			"$app/*": [".svelte/dev/runtime/app/*", ".svelte/build/runtime/app/*"]
 		}
 	},
-	"include": [
-		"src/**/*.d.ts",
-		"src/**/*.ts",
-		"src/**/*.svelte",
-		"src/electron.js",
-		"src/component/record/+page.server.ts",
-		"src/index.ts",
-		"src/api/sheets/post.js",
-		"src/component/record/+page.js",
-		"src/api/index.js"
-	]
+	"include": ["src/**/*.d.ts", "src/**/*.ts", "src/**/*.svelte", "src/electron.js"]
 }

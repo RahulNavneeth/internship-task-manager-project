@@ -38,6 +38,8 @@ function createWindow() {
 		},
 	});
 
+	console.log(__dirname)
+
 	windowState.manage(mainWindow);
 	// mainWindow.webContents.openDevTools();
 	app.commandLine.appendSwitch('disable-features', 'OutOfBlinkCors');

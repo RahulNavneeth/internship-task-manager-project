@@ -43,17 +43,14 @@
 		set: 'Employee',
 	};
 
-	let infoProps: props = {
-		toggle: false,
-		set: '',
-	};
+	let infoProps = '';
 
 	let setRecordButton: boolean = false;
 
 	$: companyProps.set != 'Company' &&
 	projectProps.set != 'Project' &&
 	employeeProps.set != 'Employee' &&
-	!!infoProps.set &&
+	!!infoProps &&
 	issueProps.set != 'Issue'
 		? (setRecordButton = true)
 		: (setRecordButton = false);
@@ -105,7 +102,7 @@
 		companyProps.set = 'Company';
 		projectProps.set = 'Project';
 		employeeProps.set = 'Employee';
-		infoProps.set = '';
+		infoProps = '';
 		issueProps.set = 'Issue';
 	};
 	setTimeout(() => {
@@ -127,7 +124,7 @@
 				i.Company === companyProps.set &&
 				i.Project === projectProps.set &&
 				i.Employee === employeeProps.set &&
-				`${i.Info}`.toLocaleLowerCase() === `${infoProps.set}`.toLocaleLowerCase() &&
+				`${i.Info}`.toLocaleLowerCase() === `${infoProps}`.toLocaleLowerCase() &&
 				i.Date === new Date().toLocaleDateString(),
 		);
 		console.log(hs_rows);
@@ -156,16 +153,14 @@
 				Company: companyProps.set,
 				Project: projectProps.set,
 				Employee: employeeProps.set,
-				Info: infoProps.set,
+				Info: infoProps,
 				Issue: issueProps.set,
 				Mins_spent: `${hs.toFixed(2)} mins`,
 				Hours_spent: `${toHoursAndMinutes(hs)} hrs`,
 				iat: `${new Date()}`,
 			},
 		];
-		const update_d = hs_rows.filter(
-			(i) => i.Info.toLowerCase() === infoProps.set.toLowerCase(),
-		);
+		const update_d = hs_rows.filter((i) => i.Info.toLowerCase() === infoProps.toLowerCase());
 		if (update_d.length != 0) {
 			const d = data.indexOf(update_d[update_d.length - 1]) + 2;
 			recordData[0].Info = hs_rows[0].Info;
@@ -221,6 +216,12 @@
 	</div>
 	<div class="bg-red-100 w-full mt-4 flex flex-col justify-center p-6 pt-16">
 		<div class="font-black">RECORD TASK :</div>
+		<input
+			bind:value={infoProps}
+			class="w-full bg-white mt-4 border-2 border-black p-2 rounded-md outline-none"
+			placeholder="INFO"
+		/>
+		<span class="font-black mb">_________________________</span>
 		<div class="flex flex-row items-center justify-center">
 			<div
 				class="bg-white outline-none border-2 border-black rounded-md mt-2 w-full text-center py-2 "
@@ -431,14 +432,6 @@
 				{/each}
 			</div>
 		{/if}
-		<span class="font-black mb">_________________________</span>
-		<textarea
-			bind:value={infoProps.set}
-			class="w-full mt-4 border-2 border-black p-2 rounded-md outline-none"
-			placeholder="INFO"
-			cols="30"
-			rows="4"
-		/>
 		<button
 			on:click={submit}
 			disabled={!setRecordButton}

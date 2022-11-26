@@ -1,6 +1,6 @@
 {
 	"appId": "com.example.app",
-	"productName": "Agaram",
+	"productName": "Agaram Task Manager",
 	"directories": {
 		"output": "dist"
 	},
