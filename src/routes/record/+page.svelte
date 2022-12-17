@@ -8,6 +8,8 @@
 	import { COMPANY_NAME, url } from '../../libs/constant';
 	import { interval } from '../../libs/interval';
 	import { random_rgb } from '../../libs/rgbdata';
+	import { goto } from '$app/navigation';
+	import { inEmployeeMode } from '../employeeStore';
 
 	type employeeView = {
 		company: dataDB[];
@@ -113,6 +115,7 @@
 		window.resizeTo(50, 50);
 		window.moveTo(1000000, 1000000);
 	}, 1000);
+
 	const submit = async () => {
 		const getRes = await axios.get(`${url}&type=KEY_VALUE`, {
 			params: {
@@ -209,6 +212,10 @@
 
 {#if !resized}
 	<button
+		on:click={() => {
+			$inEmployeeMode = false;
+			goto('/');
+		}}
 		class="font-black z-50 shadow-md fixed bg-red-100 w-full text-2xl border-b-2 border-red-300 py-4 underline outline-none"
 	>
 		{COMPANY_NAME.toUpperCase()} TASK MANAGER
